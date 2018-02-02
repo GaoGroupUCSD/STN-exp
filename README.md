@@ -1,1 +1,1 @@
-# STN-exp
+# Experiments with Spatial Transformer Networks
