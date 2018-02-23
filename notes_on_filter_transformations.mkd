@@ -1,0 +1,13 @@
+## Filter transformations
+
+# Idea 
+To transform the filters according to the input /part of the image we are convolving on at a time.
+
+# Goal:
+- decrease the number of filters, 
+- increase in accuracy
+
+# Related work:
+
+
+# Experiments:
