@@ -28,6 +28,7 @@ Cluttered MNIST
 ### Results
 #### Experiment 1: 
 #### Setup:
+No of filters in each convolutional layer: 32
 Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
@@ -37,8 +38,22 @@ Rotated filter layer: Convolutional layer where every filter is rotated to 45 de
 | All 4 conv layers with 2 rotated filters  | 92.5  | 92.09| 0.30970 | 0.3239| 
 | All 4 conv layers with 1 rotated filters  | 92.9  | 92.95| 0.3904366 | 0.36607| 
 
-#### Experiment 1: 
+#### Experiment 2: 
 #### Setup:
+No of filters in each convolutional layer: 16
+Rotated filter layer: Convolutional layer where every filter is rotated to 90 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
+
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 92.92  | 92.79 | 0.3429| 0.3883|
+| All 4 conv layers with 3 rotated filters  | 91.5  | 91.1| 0.3484 | 0.36384| 
+| All 4 conv layers with 2 rotated filters  | 91.18  | 91.32| 0.34453 | 0.3548| 
+| All 4 conv layers with 1 rotated filters  | 91.53  | 91.96| 0.543602 | 0.544| 
+
+
+#### Experiment 3: 
+#### Setup:
+No of filters in each convolutional layer: 16
 Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
@@ -47,12 +62,24 @@ Rotated filter layer: Convolutional layer where every filter is rotated to 45 de
 | All 4 conv layers with 3 rotated filters  | 92.8  | 93.08| 0.261119 | 0.252387| 
 | All 4 conv layers with 2 rotated filters  | 92.5  | 92.09| 0.30970 | 0.3239| 
 | All 4 conv layers with 1 rotated filters  | 92.9  | 92.95| 0.3904366 | 0.36607| 
+
+#### Experiment 4: 
+#### Setup:
+No of filters in each convolutional layer: 16
+Rotated filter layer: Convolutional layer where every filter is rotated to 90 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
+
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 92.92  | 92.79 | 0.3429| 0.3883|
+| All 4 conv layers with 3 rotated filters  | 91.5  | 91.1| 0.3484 | 0.36384| 
+| All 4 conv layers with 2 rotated filters  | 91.18  | 91.32| 0.34453 | 0.3548| 
+| All 4 conv layers with 1 rotated filters  | 91.53  | 91.96| 0.543602 | 0.544| 
 
 
 ### Findings
 - If we use a rotated filter layer as the first convlolutional layer, the accuracy drop significantly to 3-4 points compared to the baseline
 - For all the other layers, the accuracy is not very different when compared with applying the rotational convolutional layer to deeper layers.
-- The accuracy with just one rotational layer is the highest though with a marginal difference.
-- The accuracy is not very different when only 4 rotations are used vs 8 rotations.
+- The accuracy with more rotational layers is the highest though with a marginal difference.
+- The accuracy for 4 rotations is better in case of 16 filters as compared to 8 rotations.
 
 
