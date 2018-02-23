@@ -15,7 +15,7 @@ To transform the filters according to the input /part of the image we are convol
 Digit classification
 
 ### Network setup: 
-####Baseline:
+#### Baseline:
 4 CNN layers followed by maxpool
 2 Dense layers (256 and 10 neurons)
 Dropout: 0.3 rate
@@ -26,27 +26,33 @@ Optimizer: Adam
 Cluttered MNIST
 
 ### Results
-### Experiment 1: 
+#### Experiment 1: 
 #### Setup:
 Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
 | ------------- | ------------- |-------------|-----------------|-----------|
-|  Baseline  | 93.02  | 93.25 | 0.34501| 0.33128
-| All 4 conv layers with 4 rotated filters  | Content Cell  |
-Results for: baseline
-maxVAcc: 0.9302, maxTAcc: 0.9325, maxVScore: 0.345015057188, maxTScore: 0.331282009412, epoch: 86
+|  Baseline  | 93.02  | 93.25 | 0.34501| 0.33128|
+| All 4 conv layers with 3 rotated filters  | 92.8  | 93.08| 0.261119 | 0.252387| 
+| All 4 conv layers with 2 rotated filters  | 92.5  | 92.09| 0.30970 | 0.3239| 
+| All 4 conv layers with 1 rotated filters  | 92.9  | 92.95| 0.3904366 | 0.36607| 
 
-Results for: 4_rot_3
-maxVAcc: 0.928, maxTAcc: 0.9308, maxVScore: 0.261119021481, maxTScore: 0.252387332307, epoch: 64
+#### Experiment 1: 
+#### Setup:
+Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
 
-Results for: 4_rot_2
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 93.02  | 93.25 | 0.34501| 0.33128|
+| All 4 conv layers with 3 rotated filters  | 92.8  | 93.08| 0.261119 | 0.252387| 
+| All 4 conv layers with 2 rotated filters  | 92.5  | 92.09| 0.30970 | 0.3239| 
+| All 4 conv layers with 1 rotated filters  | 92.9  | 92.95| 0.3904366 | 0.36607| 
 
-maxVAcc: 0.925, maxTAcc: 0.9209, maxVScore: 0.309702424397, maxTScore: 0.32394193147, epoch: 72
-
-Results for: 4_rot_1
-maxVAcc: 0.929, maxTAcc: 0.9295, maxVScore: 0.390436610398, maxTScore: 0.36607943565, epoch: 107
 
 ### Findings
 - If we use a rotated filter layer as the first convlolutional layer, the accuracy drop significantly to 3-4 points compared to the baseline
-- For all the other layers, the accuracy is not very different when compared with
+- For all the other layers, the accuracy is not very different when compared with applying the rotational convolutional layer to deeper layers.
+- The accuracy with just one rotational layer is the highest though with a marginal difference.
+- The accuracy is not very different when only 4 rotations are used vs 8 rotations.
+
+
