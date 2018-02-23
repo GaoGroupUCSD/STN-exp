@@ -123,11 +123,13 @@ Rotated filter layer: Convolutional layer where every filter is rotated to 90 de
 
 #### Experiment 5:
 Concat all the feature maps together and backpropagate the gradients in one filter.
-Results for: 8_rot_1
-maxVAcc: 0.9524, maxTAcc: 0.9519, maxVScore: 0.352945307519, maxTScore: 0.360047874638, epoch: 92
 
-Results for: 4_rot_1
-maxVAcc: 0.9513, maxTAcc: 0.9493, maxVScore: 0.350566796463, maxTScore: 0.356988455765, epoch: 97
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 95.12  | 95.25 | 0.34501| 0.33128|
+| All 4 conv layers with 1 rotated filters(8 rotations)  | 95.24  | 95.19| 0.352945 | 0.360047|
+| All 4 conv layers with 1 rotated filters(4 rotations)  | 95.13  | 94.93|  0.3505667 | 0.3569884|
+
 
 ### Findings
 - If we use a rotated filter layer as the first convlolutional layer, the accuracy drop significantly to 3-4 points compared to the baseline
