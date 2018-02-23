@@ -17,9 +17,13 @@ Digit classification
 ### Network setup: 
 #### Baseline:
 4 CNN layers followed by maxpool
+
 2 Dense layers (256 and 10 neurons)
+
 Dropout: 0.3 rate
+
 Epochs: 110
+
 Optimizer: Adam
 
 ### Dataset 
@@ -30,21 +34,6 @@ Cluttered MNIST
 #### Setup:
 No of filters in each convolutional layer: 32
 Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
-Results for: baseline
-maxVAcc: 0, maxTAcc: 0.9508, maxVScore: 0.35393356011, maxTScore: 0.355747841577, epoch: 95
-
-Results for: 8_rot_4
-maxVAcc: 89.06, maxTAcc: 89.35, maxVScore: 0.77682047617, maxTScore: 0.762744199578, epoch: 109
-
-Results for: 8_rot_3
-maxVAcc: 0, maxTAcc: 0.9398, maxVScore: 0.313744288214, maxTScore: 0.317178053017, epoch: 62
-
-Results for: 8_rot_2
-maxVAcc: 0, maxTAcc: 0.9447, maxVScore: 0.334672116231, maxTScore: 0.324319526154, epoch: 59
-
-Results for: 8_rot_1
-maxVAcc: 0, maxTAcc: 0.9517, maxVScore: 0.348572970338, maxTScore: 0.381028354917, epoch: 109
-
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
 | ------------- | ------------- |-------------|-----------------|-----------|
@@ -96,7 +85,7 @@ Rotated filter layer: Convolutional layer where every filter is rotated to 90 de
 ### Findings
 - If we use a rotated filter layer as the first convlolutional layer, the accuracy drop significantly to 3-4 points compared to the baseline
 - For all the other layers, the accuracy is not very different when compared with applying the rotational convolutional layer to deeper layers.
-- The accuracy with more rotational layers is the highest though with a marginal difference.
+- The accuracy with lesser rotational layers is the highest though with a marginal difference.
 - The accuracy for 4 rotations is better in case of 16 filters as compared to 8 rotations.
 
 
