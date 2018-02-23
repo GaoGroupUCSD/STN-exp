@@ -18,6 +18,9 @@ Digit classification
 ####Baseline:
 4 CNN layers followed by maxpool
 2 Dense layers (256 and 10 neurons)
+Dropout: 0.3 rate
+Epochs: 110
+Optimizer: Adam
 
 ### Dataset 
 Cluttered MNIST
@@ -27,10 +30,10 @@ Cluttered MNIST
 #### Setup:
 Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 93.02  | 93.25 | 0.34501| 0.33128
+| All 4 conv layers with 4 rotated filters  | Content Cell  |
 Results for: baseline
 maxVAcc: 0.9302, maxTAcc: 0.9325, maxVScore: 0.345015057188, maxTScore: 0.331282009412, epoch: 86
 
@@ -39,12 +42,11 @@ maxVAcc: 0.928, maxTAcc: 0.9308, maxVScore: 0.261119021481, maxTScore: 0.2523873
 
 Results for: 4_rot_2
 
-### Conclusions:
-
 maxVAcc: 0.925, maxTAcc: 0.9209, maxVScore: 0.309702424397, maxTScore: 0.32394193147, epoch: 72
 
 Results for: 4_rot_1
 maxVAcc: 0.929, maxTAcc: 0.9295, maxVScore: 0.390436610398, maxTScore: 0.36607943565, epoch: 107
 
 ### Findings
-- If we use a rotated filter layer
+- If we use a rotated filter layer as the first convlolutional layer, the accuracy drop significantly to 3-4 points compared to the baseline
+- For all the other layers, the accuracy is not very different when compared with
