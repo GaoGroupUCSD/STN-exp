@@ -10,6 +10,7 @@ To transform the filters according to the input /part of the image we are convol
 ## Related work:
 1. Dynamic Steerable blocks in Deep Residual Networks
 [https://arxiv.org/pdf/1706.00598.pdf]
+- Dataset:  Berkeley Segmentation contour detection dataset
 -  able to seamlessly
 transform filters under pre-defined transformations, conditioned on the input at
 training and inference time.
