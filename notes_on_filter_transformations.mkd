@@ -30,13 +30,29 @@ Cluttered MNIST
 #### Setup:
 No of filters in each convolutional layer: 32
 Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
+Results for: baseline
+maxVAcc: 0, maxTAcc: 0.9508, maxVScore: 0.35393356011, maxTScore: 0.355747841577, epoch: 95
+
+Results for: 8_rot_4
+maxVAcc: 89.06, maxTAcc: 89.35, maxVScore: 0.77682047617, maxTScore: 0.762744199578, epoch: 109
+
+Results for: 8_rot_3
+maxVAcc: 0, maxTAcc: 0.9398, maxVScore: 0.313744288214, maxTScore: 0.317178053017, epoch: 62
+
+Results for: 8_rot_2
+maxVAcc: 0, maxTAcc: 0.9447, maxVScore: 0.334672116231, maxTScore: 0.324319526154, epoch: 59
+
+Results for: 8_rot_1
+maxVAcc: 0, maxTAcc: 0.9517, maxVScore: 0.348572970338, maxTScore: 0.381028354917, epoch: 109
+
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
 | ------------- | ------------- |-------------|-----------------|-----------|
-|  Baseline  | 93.02  | 93.25 | 0.34501| 0.33128|
-| All 4 conv layers with 3 rotated filters  | 92.8  | 93.08| 0.261119 | 0.252387| 
-| All 4 conv layers with 2 rotated filters  | 92.5  | 92.09| 0.30970 | 0.3239| 
-| All 4 conv layers with 1 rotated filters  | 92.9  | 92.95| 0.3904366 | 0.36607| 
+|  Baseline  | 95.1  | 95.08 | 0.35393| 0.355747|
+| All 4 conv layers with 4 rotated filters  | 89.06  | 89.35| 0.7768204 |0.7627| 
+| All 4 conv layers with 3 rotated filters  | 93.9  | 93.988| 0.3137442 | 0.317178| 
+| All 4 conv layers with 2 rotated filters  | 94.5  | 94.47| 0.33467211 |0.3243| 
+| All 4 conv layers with 1 rotated filters  | 95.1  | 95.17|0.34857| 0.3810| 
 
 #### Experiment 2: 
 #### Setup:
@@ -45,10 +61,11 @@ Rotated filter layer: Convolutional layer where every filter is rotated to 90 de
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
 | ------------- | ------------- |-------------|-----------------|-----------|
-|  Baseline  | 92.92  | 92.79 | 0.3429| 0.3883|
-| All 4 conv layers with 3 rotated filters  | 91.5  | 91.1| 0.3484 | 0.36384| 
-| All 4 conv layers with 2 rotated filters  | 91.18  | 91.32| 0.34453 | 0.3548| 
-| All 4 conv layers with 1 rotated filters  | 91.53  | 91.96| 0.543602 | 0.544| 
+|  Baseline  | 95.1  | 95.08 | 0.35393| 0.355747|
+| All 4 conv layers with 4 rotated filters  | 91.84 | 90.84 |0.6765 | 0.6759| 
+| All 4 conv layers with 3 rotated filters  | 94.5  | 94.3| 0.3489| 0.36120| 
+| All 4 conv layers with 2 rotated filters  | 94.4  | 94.49| 0.35597| 0.353036| 
+| All 4 conv layers with 1 rotated filters  | 95.3 | 95.25| 0.34364 | 0.3762| 
 
 
 #### Experiment 3: 
