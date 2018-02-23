@@ -99,10 +99,10 @@ Rotated filter layer: Convolutional layer where every filter is rotated to 45 de
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
 | ------------- | ------------- |-------------|-----------------|-----------|
-|  Baseline  | 93.02  | 93.25 | 0.34501| 0.33128|
-| All 4 conv layers with 3 rotated filters  | 92.8  | 93.08| 0.261119 | 0.252387| 
-| All 4 conv layers with 2 rotated filters  | 92.5  | 92.09| 0.30970 | 0.3239| 
-| All 4 conv layers with 1 rotated filters  | 92.9  | 92.95| 0.3904366 | 0.36607| 
+|  Baseline  | 92.92  | 92.79 | 0.3429| 0.3883|
+| All 4 conv layers with 3 rotated filters  | 91.5  | 91.1| 0.3484 | 0.36384| 
+| All 4 conv layers with 2 rotated filters  | 91.18  | 91.32| 0.34453 | 0.3548| 
+| All 4 conv layers with 1 rotated filters  | 91.53  | 91.96| 0.543602 | 0.544| 
 
 #### Experiment 4: 
 #### Setup:
@@ -111,11 +111,10 @@ Rotated filter layer: Convolutional layer where every filter is rotated to 90 de
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
 | ------------- | ------------- |-------------|-----------------|-----------|
-|  Baseline  | 92.92  | 92.79 | 0.3429| 0.3883|
-| All 4 conv layers with 3 rotated filters  | 91.5  | 91.1| 0.3484 | 0.36384| 
-| All 4 conv layers with 2 rotated filters  | 91.18  | 91.32| 0.34453 | 0.3548| 
-| All 4 conv layers with 1 rotated filters  | 91.53  | 91.96| 0.543602 | 0.544| 
-
+|  Baseline  | 93.02  | 93.25 | 0.34501| 0.33128|
+| All 4 conv layers with 3 rotated filters  | 92.8  | 93.08| 0.261119 | 0.252387| 
+| All 4 conv layers with 2 rotated filters  | 92.5  | 92.09| 0.30970 | 0.3239| 
+| All 4 conv layers with 1 rotated filters  | 92.9  | 92.95| 0.3904366 | 0.36607| 
 
 ### Findings
 - If we use a rotated filter layer as the first convlolutional layer, the accuracy drop significantly to 3-4 points compared to the baseline
