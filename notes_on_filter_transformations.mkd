@@ -51,15 +51,11 @@ Non-trainable params: 0
 _________________________________________________________________
 </pre>
 #### Baseline:
-4 CNN layers followed by maxpool
-
-2 Dense layers (256 and 10 neurons)
-
-Dropout: 0.3 rate
-
-Epochs: 110
-
-Optimizer: Adam
+- 4 CNN layers followed by maxpool
+- 2 Dense layers (256 and 10 neurons)
+- Dropout: 0.3 rate
+- Epochs: 110
+- Optimizer: Adam
 
 ### Dataset 
 Cluttered MNIST
@@ -94,8 +90,8 @@ Rotated filter layer: Convolutional layer where every filter is rotated to 90 de
 
 #### Experiment 3: 
 #### Setup:
-No of filters in each convolutional layer: 16
-Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
+- No of filters in each convolutional layer: 16
+- Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
 
 | Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
 | ------------- | ------------- |-------------|-----------------|-----------|
