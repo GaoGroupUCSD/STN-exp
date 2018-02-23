@@ -1,13 +1,24 @@
-## Filter transformations
+# Transformations of convolutional filters 
 
-# Idea 
+## Idea 
 To transform the filters according to the input /part of the image we are convolving on at a time.
 
-# Goal:
+## Goal:
 - decrease the number of filters, 
 - increase in accuracy
 
-# Related work:
+## Related work:
 
 
-# Experiments:
+## Experiments:
+
+### Task:
+Digit classification
+
+### Network setup: 
+4 CNN layers followed by maxpool
+2 Dense layers (256 and 10 neurons)
+
+### Dataset 
+Cluttered MNIST
+
