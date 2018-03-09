@@ -18,7 +18,7 @@ training and inference time.
 from data and locally adapt filters, allowing them to apply a different geometrical variant
 of the same filter to each location of the feature map. 
 
-### 2. A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations (By MIT ppl Feb 2018)
+### 2. A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations (By MIT Feb 2018)
 [https://arxiv.org/pdf/1712.02779.pdf]
 - Paper is based on the idea that it is considerably easy to fool a CNN network by small transformations like rotations (-30 to +30 degrees), translation(10% of the image)  and scaling. These transformations are very easy to be classified when seen a human.
 - Dataset: MNIST, CIFAR10, ImageNet
@@ -40,6 +40,12 @@ against such an adversary increases the training by a factor
 of roughly six
 - Results ![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial_network1.PNG)
 #### Idea : Create the worst perturbed dataset, on which the network is performing the worst and then train on that. 
+
+### 3. Generalizing Pooling Functions in CNNs: Mixed, Gated, and Tree (By Prof Zhuowen grp)
+[http://pages.ucsd.edu/~ztu/publication/pami_gpooling.pdf]
+- The two primary directions lie in: (1) learning a pooling function via (two strategies of) combining of max and average
+pooling, and (2) learning a pooling function in the form of a tree-structured fusion of pooling filters that are themselves learned.
+- 
 
 
 ## Experiments:
