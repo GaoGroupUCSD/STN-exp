@@ -17,6 +17,17 @@ training and inference time.
 - Dynamic steerable blocks learn the degree of invariance
 from data and locally adapt filters, allowing them to apply a different geometrical variant
 of the same filter to each location of the feature map. 
+
+2. A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations (By MIT ppl Feb 2018)
+[https://arxiv.org/pdf/1712.02779.pdf]
+- Paper is based on the idea that it is considerably easy to fool a CNN network by small transformations like rotations (-30 to +30 degrees), translation(few pixels)  and scaling. These transformations are very easy to be classified when seen a human.
+- Dataset: MNIST, CIFAR10, ImageNet
+- To choose the transformations they claim that they dont need to know the exact model but  choosing the worst out
+of 10 random transformations is sufficient to reduce the
+accuracy of these models by 26% on MNIST, 72% on CIFAR10,
+and 28% on ImageNet (Top 1)
+- Recall that, in the context of vision models, an adversarial example for a given image x and a classifier C is an image x_0 that, on one hand, causes the classifier C to output a different label on x_0 than on x, i.e., to have C(x) != C(x_0), but, on the other hand, is “visually similar” to x.
+- Most works on visual similarity assume that Arguably, when two images are close in some `p` norm they are visually similar. 
 - 
 
 ## Experiments:
