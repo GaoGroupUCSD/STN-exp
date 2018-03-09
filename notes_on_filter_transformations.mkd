@@ -46,6 +46,8 @@ of roughly six
 - The two primary directions lie in: (1) learning a pooling function via (two strategies of) combining of max and average
 pooling, and (2) learning a pooling function in the form of a tree-structured fusion of pooling filters that are themselves learned.
 - Tree  Pooling: The idea to learn pooling filters on each of the nodes of the binary tree and also how to combine the leaves of this tree.
+- For generalizing pooling, the paper uses gated max-avg pooling. For tree pooling this concept is used further to combine the left and right leaf values using the gating function. 
+#### Idea: Use softmax function to find out the rotated filter to be used further out of all the rotations. The rotations can be obtained using fixed rotations/
 
 
 ## Experiments:
