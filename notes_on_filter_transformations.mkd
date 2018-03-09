@@ -38,7 +38,7 @@ corresponds to minimizing a min-max formulation of the
 problem similar to that in (Madry et al., 2017). Training
 against such an adversary increases the training by a factor
 of roughly six
-- Results ![results](images/adversarial_network1.png)
+- Results ![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial_network1.PNG)
 #### Idea : Create the worst perturbed dataset, on which the network is performing the worst and then train on that. 
 
 
