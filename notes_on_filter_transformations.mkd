@@ -8,7 +8,7 @@ To transform the filters according to the input /part of the image we are convol
 - increase in accuracy
 
 ## Related work:
-1. Dynamic Steerable blocks in Deep Residual Networks
+### 1. Dynamic Steerable blocks in Deep Residual Networks
 [https://arxiv.org/pdf/1706.00598.pdf]
 - Dataset:  Berkeley Segmentation contour detection dataset
 -  able to seamlessly
@@ -18,9 +18,9 @@ training and inference time.
 from data and locally adapt filters, allowing them to apply a different geometrical variant
 of the same filter to each location of the feature map. 
 
-2. A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations (By MIT ppl Feb 2018)
+### 2. A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations (By MIT ppl Feb 2018)
 [https://arxiv.org/pdf/1712.02779.pdf]
-- Paper is based on the idea that it is considerably easy to fool a CNN network by small transformations like rotations (-30 to +30 degrees), translation(few pixels)  and scaling. These transformations are very easy to be classified when seen a human.
+- Paper is based on the idea that it is considerably easy to fool a CNN network by small transformations like rotations (-30 to +30 degrees), translation(10% of the image)  and scaling. These transformations are very easy to be classified when seen a human.
 - Dataset: MNIST, CIFAR10, ImageNet
 - To choose the transformations they claim that they dont need to know the exact model but  choosing the worst out
 of 10 random transformations is sufficient to reduce the
@@ -28,7 +28,19 @@ accuracy of these models by 26% on MNIST, 72% on CIFAR10,
 and 28% on ImageNet (Top 1)
 - Recall that, in the context of vision models, an adversarial example for a given image x and a classifier C is an image x_0 that, on one hand, causes the classifier C to output a different label on x_0 than on x, i.e., to have C(x) != C(x_0), but, on the other hand, is “visually similar” to x.
 - Most works on visual similarity assume that Arguably, when two images are close in some `p` norm they are visually similar. 
-- 
+- Given that we cannot fully optimize over the space of transformations, we use a coarse approximation provided by the
+worst-of-10 adversary (described in Section 2). That is, first
+we sample 10 random transformations of each training example
+uniformly from the space of allowed transformations.
+We then evaluate the model on each of these transformations
+and choose to train on the one with highest loss. This
+corresponds to minimizing a min-max formulation of the
+problem similar to that in (Madry et al., 2017). Training
+against such an adversary increases the training by a factor
+of roughly six
+- Results ![alt text](images/adversarial_network1.jpg)
+#### Idea : Create the worst perturbed dataset, on which the network is performing the worst and then train on that. 
+
 
 ## Experiments:
 ### Task:
