@@ -39,7 +39,7 @@ problem similar to that in (Madry et al., 2017). Training
 against such an adversary increases the training by a factor
 of roughly six
 - Results ![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial_network1.PNG)
-#### Idea : Create the worst perturbed dataset, on which the network is performing the worst and then train on that. 
+#### Idea : Create the worst perturbed dataset, on which the network is performing the worst and then train on that. How about combining the ideas of Boosting (the example that performs the worst) in general and the rotated versions to be given higher weight in training.
 
 ### 3. Generalizing Pooling Functions in CNNs: Mixed, Gated, and Tree (By Prof Zhuowen grp)
 [http://pages.ucsd.edu/~ztu/publication/pami_gpooling.pdf]
