@@ -49,6 +49,26 @@ pooling, and (2) learning a pooling function in the form of a tree-structured fu
 - For generalizing pooling, the paper uses gated max-avg pooling. For tree pooling this concept is used further to combine the left and right leaf values using the gating function. 
 #### Idea: Use softmax function to find out the rotated filter to be used further out of all the rotations. The rotations can be obtained using fixed rotations/
 
+### 4. Deep Neural Decision Forests: MSR + Stanford
+- Using stochastic gradient descent to generate decision trees
+
+### 5. AOG Nets: And and or networks (2017, NCSU)
+-It presents a simple yet effective method of deeply integrating
+grammar models and deep neural networks,
+which facilitates both feature exploration and exploitation
+in a hierarchical and compositional way with nice
+balance between depth and width. In implementation,
+we adopt the AND-OR grammar (AOG) [33, 46, 45].
+To the best of our knowledge, it is the first work that
+utilizes grammar models in network engineering. It
+sheds light on introducing more sophisticated structured
+knowledge representation [38] in network architecture
+search.
+- It shows better performance than state-of-the-art
+ResNets in both image classification and object detection
+- An AOGNet consists of M stages: Each feature map of dimensionality CxHxW is treated as a sentence of N words of dimensions CxN
+- There are three types of nodes: Terminal, AND: concatenation, OR: summation
+- Future work: Only binary AND node concatenation. Complex interactions by concatenating the entire sub module. Other gates, 
 
 ## Experiments:
 ### Task:
