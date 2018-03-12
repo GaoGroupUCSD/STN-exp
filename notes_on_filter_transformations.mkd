@@ -41,7 +41,21 @@ of roughly six
 - Results ![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial_network1.PNG)
 #### Idea : Create the worst perturbed dataset, on which the network is performing the worst and then train on that. How about combining the ideas of Boosting (the example that performs the worst) in general and the rotated versions to be given higher weight in training.
 
-### 3. Generalizing Pooling Functions in CNNs: Mixed, Gated, and Tree (By Prof Zhuowen grp)
+### 3. ROBUSTNESS OF ROTATION-EQUIVARIANT NETWORKS TO ADVERSARIAL PERTURBATIONS
+[https://openreview.net/pdf?id=HkLBRtkDG]
+- Dataset: Rotated MNIST (0 to 360), CIFAR-10, ImageNet
+- Show that the networks like Deep Rotation Equivariant Networks etc. which are better suited for rotations perform better in case of adversarial examples targeting spatial dynamics
+- Perform a comparison of 4 networks: Deep Rotation Equivariant Networks[https://arxiv.org/pdf/1705.08623.pdf], Oriented Response Networks, Harmonic Networks[https://arxiv.org/pdf/1612.04642.pdf], Group Equivariant Convolutional Neural Networks on the rotation adversarial attacks.
+- G-CNNs provide equivariance to 90 degrees rotations and mirror reflections by redefining the convolution operator over symmetry groups. Second, H-Nets obtain equivariance to 360 degrees rotations using complex-valued filters constrained to the family of circular harmonics. Third, DRENs use the cyclic properties of 90 degrees rotations, using rotated filters instead of rotating feature maps, to obtain a deep representation of rotation equivariance.
+- Finally, ORNs obtain invariance to rotations using filters that actively rotate during convolution
+- Attacks: adversarial attacks based on geometric transformations: spatially
+transformed adversarial examples (stAdv), based on Spatial Transformer Networks [https://arxiv.org/pdf/1801.02612.pdf], and rigid geometric transformations (global rotations and translations) following closely the
+procedure of [2.]
+- to quantify the robustness to adversarial attacks metric used is called: attack success
+rate. The attack success rate is the fraction of attacks that manage to fool a classifier, for a given
+type of attack.
+- comparison of all 4 methods ![comparison](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/comparison.PNG)
+### 4. Generalizing Pooling Functions in CNNs: Mixed, Gated, and Tree (By Prof Zhuowen grp)
 [http://pages.ucsd.edu/~ztu/publication/pami_gpooling.pdf]
 - The two primary directions lie in: (1) learning a pooling function via (two strategies of) combining of max and average
 pooling, and (2) learning a pooling function in the form of a tree-structured fusion of pooling filters that are themselves learned.
@@ -49,20 +63,11 @@ pooling, and (2) learning a pooling function in the form of a tree-structured fu
 - For generalizing pooling, the paper uses gated max-avg pooling. For tree pooling this concept is used further to combine the left and right leaf values using the gating function. 
 #### Idea: Use softmax function to find out the rotated filter to be used further out of all the rotations. The rotations can be obtained using fixed rotations/
 
-### 4. Deep Neural Decision Forests: MSR + Stanford
+### 5. Deep Neural Decision Forests: MSR + Stanford
 - Using stochastic gradient descent to generate decision trees
 
-### 5. AOG Nets: And and or networks (2017, NCSU)
--It presents a simple yet effective method of deeply integrating
-grammar models and deep neural networks,
-which facilitates both feature exploration and exploitation
-in a hierarchical and compositional way with nice
-balance between depth and width. In implementation,
-we adopt the AND-OR grammar (AOG) [33, 46, 45].
-To the best of our knowledge, it is the first work that
-utilizes grammar models in network engineering. It
-sheds light on introducing more sophisticated structured
-knowledge representation [38] in network architecture
+### 6. AOG Nets: And and or networks (2017, NCSU)
+-It presents a simple yet effective method of deeply integrating grammar models and deep neural networks, which facilitates both feature exploration and exploitation in a hierarchical and compositional way with nice balance between depth and width. In implementation, we adopt the AND-OR grammar (AOG) [33, 46, 45]. To the best of our knowledge, it is the first work that utilizes grammar models in network engineering. It sheds light on introducing more sophisticated structured knowledge representation [38] in network architecture
 search.
 - It shows better performance than state-of-the-art
 ResNets in both image classification and object detection
