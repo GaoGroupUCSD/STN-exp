@@ -26,5 +26,8 @@ accuracy in the adversarial setting.
 - Contribution:  
 -- develop Expectation Over Transformation (EOT), a novel algorithm that produces single adversarial examples that are simultaneously adversarial over an entire distribution of transformations
 -- show the same for  3d objects, showing that this is of real concern for real world NNs.
--- 
-  
+
+### 3. Spatially Transformed adversarial examples - ICLR 18 by UCB and UMich
+[https://arxiv.org/pdf/1801.02612.pdf]
+- A novel white box adversarial attack for generating spatially transformed adversarial images.
+- 
