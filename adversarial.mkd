@@ -16,6 +16,15 @@ improves the model’s performance. Furthermore, by making
 predictions based on a majority vote of randomly perturbed
 versions of the input, we can further increase classification
 accuracy in the adversarial setting.
-- ### Criticisms: Does not try the adversarial training models or STNs
+- #### Criticisms: Does not try the adversarial training models or STNs
   - does not look into better/robust network architectures.
+
+### 2. SYNTHESIZING ROBUST ADVERSARIAL EXAMPLES: Reject from ICLR 2018, potential future paper.
+[https://arxiv.org/pdf/1707.07397.pdf]
+- implementation: [https://github.com/prabhant/synthesizing-robust-adversarial-examples]
+- #### Idea: Produce adversarial images that are robust to noise, distortion, and affine transformation 
+- Contribution:  
+-- develop Expectation Over Transformation (EOT), a novel algorithm that produces single adversarial examples that are simultaneously adversarial over an entire distribution of transformations
+-- show the same for  3d objects, showing that this is of real concern for real world NNs.
+-- 
   
