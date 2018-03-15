@@ -30,6 +30,9 @@ accuracy in the adversarial setting.
 ### 3. Spatially Transformed adversarial examples - ICLR 18 by UCB and UMich
 [https://arxiv.org/pdf/1801.02612.pdf]
 - A novel white box adversarial attack for generating spatially transformed adversarial images.
+- All the existing approaches directly modify pixel values, which may sometimes produce noticeable
+artifacts. Instead, this paper aims to smoothly change the geometry of the scene while keeping the original
+appearance, producing more perceptually realistic adversarial examples.
 - ![method](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e4.PNG)
 - ![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e1.PNG)
 - ![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e2.PNG)
