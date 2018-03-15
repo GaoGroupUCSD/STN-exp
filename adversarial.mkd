@@ -24,17 +24,24 @@ accuracy in the adversarial setting.
 - implementation: [https://github.com/prabhant/synthesizing-robust-adversarial-examples]
 - #### Idea: Produce adversarial images that are robust to noise, distortion, and affine transformation 
 - Contribution:  
--- develop Expectation Over Transformation (EOT), a novel algorithm that produces single adversarial examples that are simultaneously adversarial over an entire distribution of transformations
+-- Developed Expectation Over Transformation (EOT), a novel algorithm that produces single adversarial examples that are simultaneously adversarial over an entire distribution of transformations
 -- show the same for  3d objects, showing that this is of real concern for real world NNs.
 
 ### 3. Spatially Transformed adversarial examples - ICLR 18 by UCB and UMich
 [https://arxiv.org/pdf/1801.02612.pdf]
 - A novel white box adversarial attack for generating spatially transformed adversarial images.
+- Dataset: MNIST, CIFAR10, Imagenet
+- Network: standard CNNs, adversarial training, ensemble training
 - All the existing approaches directly modify pixel values, which may sometimes produce noticeable
 artifacts. Instead, this paper aims to smoothly change the geometry of the scene while keeping the original
 appearance, producing more perceptually realistic adversarial examples.
 - ![method](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e4.PNG)
-- ![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e1.PNG)
-- ![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e2.PNG)
-- ![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e3.PNG)
+- The function is minimizing 2 terms where L_adv encourages the generated adversarial examples to be misclassified by the target classifier. L_flow ensures that the spatial transformation distance is minimized to preserve high perceptual
+quality, and tau balances these two losses. 
+![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e1.PNG)
+-  L_adv i.e. the maximum distance of the target from the other classes. here k is the confidence. Paper used k=0 
+![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e2.PNG)
+- L_flow i.e. smoothness penalty to make sure that the transformed pixels are not too different from its 4 neighbours.
+![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e3.PNG)
+- Attack success rate is ~99% on MNIST.
 
