@@ -1,0 +1,21 @@
+## Related work
+### 1. A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations by MIT ppl workshop paper
+[https://arxiv.org/pdf/1712.02779.pdf]
+- Shows that simple rotations (-30 to +30 deg)or translations(10% of the image pixels) or both are enough to reduce the accuracy of NN
+For the standard
+models, accuracy drops from 99% to 26% on MNIST, 93%
+to 3% on CIFAR10, and 76% to 31% on ImageNet
+
+- Dataset: MNIST, CIFAR10, Imagenet
+- Network architecture: Standard from tf tutorial for MNIST.
+- Black box adversarial training technique
+- Paper proposes to use worst of 10 adversary i.e. worse of 10 perturbations and train the network by adding this perturbation.
+- #### Solution proposed: randomly sampling a few transformations of
+each training point and training on the worst significantly
+improves the model’s performance. Furthermore, by making
+predictions based on a majority vote of randomly perturbed
+versions of the input, we can further increase classification
+accuracy in the adversarial setting.
+- ### Criticisms: Does not try the adversarial training models or STNs
+  - does not look into better/robust network architectures.
+  
