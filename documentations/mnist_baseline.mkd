@@ -1,0 +1,6 @@
+## MNIST baseline results
+
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  4 convlayers 32x9, 32x7, 64x9, 64x7 and 4 maxpool(2x2) | 95.43 | 95.77 | 0.17819309718| 0.17119905455|
+|  6 convlayers 32x9, 64x7, 64x5, 64X1, 64x3, 64x1 and 4 max pool(2x2)  | 97.09 | 96.99 | 0.152131852286| 0.160398687703|
