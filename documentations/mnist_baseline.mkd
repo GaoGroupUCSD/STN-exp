@@ -7,4 +7,4 @@
 | 3 |6 convlayers 64x9, 64x7, 64x5, 64X1, 64x3, 64x1 and 4 max pool(2x2) , dense(128) | 98.93 | 98.15 | 0.0407| 0.0785|
 
 ## Plots 
-loss and accuracy for Model2 with 2 1x1 convolution layers![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/mnist_baselines/1x1.PNG)
+loss and accuracy for Model2 with 2 1x1 convolution layers![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/mnist-baseline/1x1.PNG)
