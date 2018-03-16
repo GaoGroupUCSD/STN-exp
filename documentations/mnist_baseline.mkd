@@ -1,0 +1,12 @@
+## cluttered and translated MNIST baseline results
+
+| S.no.| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+|--- |------------- | ------------- |-------------|-----------------|-----------|
+| 1 |4 convlayers 32x9, 32x7, 64x9, 64x7 and 4 maxpool(2x2) | 95.43 | 95.77 | 0.17819309718| 0.17119905455|
+| 2 |6 convlayers 32x9, 64x7, 64x5, 64X1, 64x3, 64x1 and 4 max pool(2x2) , dense(128) | 97.09 | 96.99 | 0.152131852286| 0.160398687703|
+| 3 |6 convlayers 64x9, 64x7, 64x5, 64X1, 64x3, 64x1 and 4 max pool(2x2) , dense(128) | 99.42 | 98.28 | 0.0407| 0.0785|
+| 4 |8 convlayers 64x9,64x1, 64x7, 64x1, 64x5, 64X1, 64x3, 64x1 and 4 max pool(2x2) , dense(128) | 99.23 | 97.5 | 0.026| 0.1494|
+
+
+## Plots 
+loss and accuracy for Model2 with 2 1x1 convolution layers![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/mnist-baseline/1x1.PNG)

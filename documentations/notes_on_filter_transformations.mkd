@@ -1,0 +1,204 @@
+# Transformations of convolutional filters 
+
+## Idea 
+To transform the filters according to the input /part of the image we are convolving on at a time.
+
+## Goal:
+- decrease the number of filters, 
+- increase in accuracy
+
+## Related work:
+### 1. Dynamic Steerable blocks in Deep Residual Networks
+[https://arxiv.org/pdf/1706.00598.pdf]
+- Dataset:  Berkeley Segmentation contour detection dataset
+-  able to seamlessly
+transform filters under pre-defined transformations, conditioned on the input at
+training and inference time.
+- Dynamic steerable blocks learn the degree of invariance
+from data and locally adapt filters, allowing them to apply a different geometrical variant
+of the same filter to each location of the feature map. 
+
+### 2. A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations (By MIT Feb 2018)
+[https://arxiv.org/pdf/1712.02779.pdf]
+- Paper is based on the idea that it is considerably easy to fool a CNN network by small transformations like rotations (-30 to +30 degrees), translation(10% of the image)  and scaling. These transformations are very easy to be classified when seen a human.
+- Dataset: MNIST, CIFAR10, ImageNet
+- To choose the transformations they claim that they dont need to know the exact model but  choosing the worst out
+of 10 random transformations is sufficient to reduce the
+accuracy of these models by 26% on MNIST, 72% on CIFAR10,
+and 28% on ImageNet (Top 1)
+- Recall that, in the context of vision models, an adversarial example for a given image x and a classifier C is an image x_0 that, on one hand, causes the classifier C to output a different label on x_0 than on x, i.e., to have C(x) != C(x_0), but, on the other hand, is “visually similar” to x.
+- Most works on visual similarity assume that Arguably, when two images are close in some `p` norm they are visually similar. 
+- Given that we cannot fully optimize over the space of transformations, we use a coarse approximation provided by the
+worst-of-10 adversary (described in Section 2). That is, first
+we sample 10 random transformations of each training example
+uniformly from the space of allowed transformations.
+We then evaluate the model on each of these transformations
+and choose to train on the one with highest loss. This
+corresponds to minimizing a min-max formulation of the
+problem similar to that in (Madry et al., 2017). Training
+against such an adversary increases the training by a factor
+of roughly six
+- Results ![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial_network1.PNG)
+#### Idea : Create the worst perturbed dataset, on which the network is performing the worst and then train on that. How about combining the ideas of Boosting (the example that performs the worst) in general and the rotated versions to be given higher weight in training.
+
+### 3. ROBUSTNESS OF ROTATION-EQUIVARIANT NETWORKS TO ADVERSARIAL PERTURBATIONS
+[https://openreview.net/pdf?id=HkLBRtkDG]
+- Dataset: Rotated MNIST (0 to 360), CIFAR-10, ImageNet
+- Show that the networks like Deep Rotation Equivariant Networks etc. which are better suited for rotations perform better in case of adversarial examples targeting spatial dynamics
+- Perform a comparison of 4 networks: Deep Rotation Equivariant Networks[https://arxiv.org/pdf/1705.08623.pdf], Oriented Response Networks, Harmonic Networks[https://arxiv.org/pdf/1612.04642.pdf], Group Equivariant Convolutional Neural Networks on the rotation adversarial attacks.
+- G-CNNs provide equivariance to 90 degrees rotations and mirror reflections by redefining the convolution operator over symmetry groups. Second, H-Nets obtain equivariance to 360 degrees rotations using complex-valued filters constrained to the family of circular harmonics. Third, DRENs use the cyclic properties of 90 degrees rotations, using rotated filters instead of rotating feature maps, to obtain a deep representation of rotation equivariance.
+- Finally, ORNs obtain invariance to rotations using filters that actively rotate during convolution
+- Attacks: adversarial attacks based on geometric transformations: spatially
+transformed adversarial examples (stAdv), based on Spatial Transformer Networks [https://arxiv.org/pdf/1801.02612.pdf], and rigid geometric transformations (global rotations and translations) following closely the
+procedure of [2.]
+- to quantify the robustness to adversarial attacks metric used is called: attack success
+rate. The attack success rate is the fraction of attacks that manage to fool a classifier, for a given
+type of attack.
+- comparison of all 4 methods ![comparison](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/comparison.PNG)
+### 4. Generalizing Pooling Functions in CNNs: Mixed, Gated, and Tree (By Prof Zhuowen grp)
+[http://pages.ucsd.edu/~ztu/publication/pami_gpooling.pdf]
+- The two primary directions lie in: (1) learning a pooling function via (two strategies of) combining of max and average
+pooling, and (2) learning a pooling function in the form of a tree-structured fusion of pooling filters that are themselves learned.
+- Tree  Pooling: The idea to learn pooling filters on each of the nodes of the binary tree and also how to combine the leaves of this tree.
+- For generalizing pooling, the paper uses gated max-avg pooling. For tree pooling this concept is used further to combine the left and right leaf values using the gating function. 
+#### Idea: Use softmax function to find out the rotated filter to be used further out of all the rotations. The rotations can be obtained using fixed rotations/
+
+### 5. Deep Neural Decision Forests: MSR + Stanford
+- Using stochastic gradient descent to generate decision trees
+
+### 6. AOG Nets: And and or networks (2017, NCSU)
+-It presents a simple yet effective method of deeply integrating grammar models and deep neural networks, which facilitates both feature exploration and exploitation in a hierarchical and compositional way with nice balance between depth and width. In implementation, we adopt the AND-OR grammar (AOG) [33, 46, 45]. To the best of our knowledge, it is the first work that utilizes grammar models in network engineering. It sheds light on introducing more sophisticated structured knowledge representation [38] in network architecture
+search.
+- It shows better performance than state-of-the-art
+ResNets in both image classification and object detection
+- An AOGNet consists of M stages: Each feature map of dimensionality CxHxW is treated as a sentence of N words of dimensions CxN
+- There are three types of nodes: Terminal, AND: concatenation, OR: summation
+- Future work: Only binary AND node concatenation. Complex interactions by concatenating the entire sub module. Other gates, 
+
+## Experiments:
+### Task:
+Digit classification
+
+### Network setup: 
+<pre>
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 60, 60, 32)        288       
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 30, 30, 32)        0         
+_________________________________________________________________
+convolution2d_8_1 (Convoluti (None, 30, 30, 32)        9216      
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 15, 15, 32)        0         
+_________________________________________________________________
+convolution2d_8_2 (Convoluti (None, 15, 15, 32)        9216      
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 7, 7, 32)          0         
+_________________________________________________________________
+convolution2d_8_3 (Convoluti (None, 5, 5, 32)          9216      
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 2, 2, 32)          0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 256)               33024     
+_________________________________________________________________
+activation_1 (Activation)    (None, 256)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 10)                2570      
+_________________________________________________________________
+activation_2 (Activation)    (None, 10)                0         
+=================================================================
+Total params: 63,530
+Trainable params: 63,530
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+#### Baseline:
+- 4 CNN layers followed by maxpool
+- 2 Dense layers (256 and 10 neurons)
+- Dropout: 0.3 rate
+- Epochs: 110
+- Optimizer: Adam
+
+### Dataset 
+Cluttered MNIST: [https://github.com/MasazI/Spatial_Transformer_Network]
+Dataser: The translated and
+cluttered dataset (TC) is generated by placing an MNIST digit in a random location in a 60 × 60
+black canvas, and then inserting six randomly sampled 6 × 6 patches of other digit images into
+random locations in the image.
+
+Though the STN paper mentions this dataset, it does not report any results on this dataset.
+
+### Results
+#### Experiment 1: 
+#### Setup:
+No of filters in each convolutional layer: 32
+Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
+
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 95.1  | 95.08 | 0.35393| 0.355747|
+| All 4 conv layers with 4 rotated filters  | 89.06  | 89.35| 0.7768204 |0.7627| 
+| All 4 conv layers with 3 rotated filters  | 93.9  | 93.988| 0.3137442 | 0.317178| 
+| All 4 conv layers with 2 rotated filters  | 94.5  | 94.47| 0.33467211 |0.3243| 
+| All 4 conv layers with 1 rotated filters  | 95.1  | 95.17|0.34857| 0.3810| 
+
+#### Experiment 2: 
+#### Setup:
+No of filters in each convolutional layer: 16
+Rotated filter layer: Convolutional layer where every filter is rotated to 90 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
+
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 95.1  | 95.08 | 0.35393| 0.355747|
+| All 4 conv layers with 4 rotated filters  | 91.84 | 90.84 |0.6765 | 0.6759| 
+| All 4 conv layers with 3 rotated filters  | 94.5  | 94.3| 0.3489| 0.36120| 
+| All 4 conv layers with 2 rotated filters  | 94.4  | 94.49| 0.35597| 0.353036| 
+| All 4 conv layers with 1 rotated filters  | 95.3 | 95.25| 0.34364 | 0.3762| 
+
+
+#### Experiment 3: 
+#### Setup:
+- No of filters in each convolutional layer: 16
+- Rotated filter layer: Convolutional layer where every filter is rotated to 45 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
+
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 92.92  | 92.79 | 0.3429| 0.3883|
+| All 4 conv layers with 3 rotated filters  | 91.5  | 91.1| 0.3484 | 0.36384| 
+| All 4 conv layers with 2 rotated filters  | 91.18  | 91.32| 0.34453 | 0.3548| 
+| All 4 conv layers with 1 rotated filters  | 91.53  | 91.96| 0.543602 | 0.544| 
+
+#### Experiment 4: 
+#### Setup:
+No of filters in each convolutional layer: 16
+Rotated filter layer: Convolutional layer where every filter is rotated to 90 degrees and stacked together. The output of this layer is the element wise maximum of the convolution output.
+
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 93.02  | 93.25 | 0.34501| 0.33128|
+| All 4 conv layers with 3 rotated filters  | 92.8  | 93.08| 0.261119 | 0.252387| 
+| All 4 conv layers with 2 rotated filters  | 92.5  | 92.09| 0.30970 | 0.3239| 
+| All 4 conv layers with 1 rotated filters  | 92.9  | 92.95| 0.3904366 | 0.36607| 
+
+#### Experiment 5:
+Concat all the feature maps together and backpropagate the gradients in one filter.
+
+| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+| ------------- | ------------- |-------------|-----------------|-----------|
+|  Baseline  | 95.12  | 95.25 | 0.34501| 0.33128|
+| All 4 conv layers with 1 rotated filters(8 rotations)  | 95.24  | 95.19| 0.352945 | 0.360047|
+| All 4 conv layers with 1 rotated filters(4 rotations)  | 95.13  | 94.93|  0.3505667 | 0.3569884|
+
+
+### Findings
+- If we use a rotated filter layer as the first convlolutional layer, the accuracy drop significantly to 3-4 points compared to the baseline
+- For all the other layers, the accuracy is not very different when compared with applying the rotational convolutional layer to deeper layers.
+- The accuracy with lesser rotational layers is the highest though with a marginal difference.
+- The accuracy for 4 rotations is better in case of 16 filters as compared to 8 rotations.
+
+
+### References
+[https://github.com/kevinzakka/spatial-transformer-network]
