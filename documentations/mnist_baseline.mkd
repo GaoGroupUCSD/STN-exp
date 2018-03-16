@@ -10,3 +10,8 @@
 
 ## Plots 
 loss and accuracy for Model2 with 2 1x1 convolution layers![results](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/mnist-baseline/1x1.PNG)
+
+| S.no.| Model  | Validation accuracy | Test accuracy| Validation loss | Test loss
+|--- |------------- | ------------- |-------------|-----------------|-----------|
+| 1 |4 rotated filters in the last conv layer of Model 3 | 99.0460006475  | 98.0900014043 | 0.0347318560563| 0.112041048283|
+
