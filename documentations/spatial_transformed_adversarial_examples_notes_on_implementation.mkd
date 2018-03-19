@@ -1,0 +1,10 @@
+### L-BFGS solver
+[https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/opt/python/training/external_optimizer.py#L235]
+- notes 
+[https://github.com/tensorflow/tensorflow/issues/446]
+
+### Adversarial attacks using optimizing the noise
+[https://github.com/akshaychawla/Adversarial-Examples-in-PyTorch/tree/master/Method%201%20-%20optimizing%20for%20noise]
+
+### Carlini and Waghner attacks
+[https://github.com/carlini/nn_robust_attacks]
