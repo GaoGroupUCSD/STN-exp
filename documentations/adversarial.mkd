@@ -45,3 +45,8 @@ quality, and tau balances these two losses.
 ![equation](https://github.com/GaoGroupUCSD/STN-exp/blob/master/images/adversarial/e3.PNG)
 - Attack success rate is ~99% on MNIST.
 
+## Ideas:
+- GAN type training (Adversarial Training)
+- Multi task training: One task is to classify and other task is to detect adversarial examples. The network to be more robust.
+
+
