@@ -1,3 +1,6 @@
+Spatially transformed adversarial examples
+Xao et al[https://arxiv.org/pdf/1801.02612.pdf]
+
 ### L-BFGS solver
 [https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/opt/python/training/external_optimizer.py#L235]
 - notes 
@@ -8,3 +11,12 @@
 
 ### Carlini and Waghner attacks
 [https://github.com/carlini/nn_robust_attacks]
+
+### Total Variation loss
+- Rudin et al mentions total variation loss in a different context as compared to Xao et al. Rudn mentions the total variation as the variation caused by noise in an image. the loss is hence to remove noise from the image than to spatially transform the image smoothly.[http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.117.1675&rep=rep1&type=pdf]
+
+- Various Neural Style transfer papers mention the idea of total variation loss and regularization. The key idea is to regularize on the generated image to ensure the image to be smooth.[https://arxiv.org/pdf/1512.02017.pdf]
+
+- Further notes [https://en.wikipedia.org/wiki/Total_variation_denoising]
+
+
